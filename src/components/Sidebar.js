@@ -12,7 +12,6 @@ const Sidebar = (props) => {
     count = 0;
     axios('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0').then(response => {
       setPokemons(response.data.results);
-      console.log(pokemons);
     }).catch(error => {
       console.log(error.message);
     })
