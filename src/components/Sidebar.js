@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import SidebarItem from './SidebarItem';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
 
   let count = 0;
   const [pokemons, setPokemons] = useState([]); 
@@ -23,9 +23,14 @@ const Sidebar = () => {
       {pokemons.map((pokemon) => {
         count += 1;
         return (
-        <SidebarItem key={count} id={count} name={pokemon.name} ></SidebarItem>
-        );
-      })};
+        <SidebarItem 
+          key={count} 
+          id={count} 
+          name={pokemon.name} 
+          updateSelectedPoke={props.updateSelectedPoke} >
+        </SidebarItem>
+        )
+      })}
     </div>
   )
 }

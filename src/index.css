@@ -12,8 +12,8 @@ code {
 }
 
 :root {
-  --poke-height: 600px;
-  --poke-width: 800px;
+  --poke-height: 700px;
+  --poke-width: 1000px;
 }
 
 #root {
@@ -35,25 +35,61 @@ code {
   display: grid;
   gap: 20px;
   grid-template-rows: 1fr;
-  grid-template-columns: .3fr 1fr;
+  grid-template-columns: .4fr 1fr;
 }
 
 .sidebar {
   background-color: white;
   margin: 20px 0px 20px 20px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .sidebar-item {
   border: 2px solid grey;
-  height: 50px;
+  height: 60px;
   display: flex;
   align-items: center;
   gap: 5px;
   justify-content: left;
+  cursor: pointer;
+}
+
+.poke-image-container {
+  height: 100%;
+}
+
+.poke-image {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .pokemon-entry {
   background-color: white;
   margin: 20px 20px 20px 0px;
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  grid-template-rows: 0.6fr 1fr;
+}
+
+.pokemon-entry > * {
+  border: 1px solid red;
+}
+
+.large-poke-image {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  height: 100%;
+}
+
+.poke-info {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+}
+
+.poke-description {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
 }
