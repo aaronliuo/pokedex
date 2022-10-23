@@ -90,6 +90,7 @@ h3 {
 
 .pokemon-entry > * {
   border: 1px solid red;
+  background-color: rgb(255, 255, 255);
 }
 
 .large-poke-image {
@@ -143,4 +144,14 @@ h3 {
   justify-content: center;
   align-items: center;
   gap: 10%;
+}
+
+.stat-container {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.stat-text {
+  margin: 0 0 0 2%;
 }

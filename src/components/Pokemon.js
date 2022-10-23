@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Abilities from './pokemonComp/Abilities';
 import Types from './pokemonComp/Types';
+import BaseStats from './pokemonComp/BaseStats';
 
 const Pokemon = (props) => {
 
@@ -33,6 +34,7 @@ const Pokemon = (props) => {
         <div className='poke-stats'>
           {pokemon.types !== undefined && <Types types={pokemon.types} ></Types>}
           {pokemon.abilities !== undefined && <Abilities abilities={pokemon.abilities} ></Abilities>}
+          {pokemon.stats !== undefined && <BaseStats stats={pokemon.stats} ></BaseStats>}
         </div>
       </div>
       <div className='poke-description'></div>
