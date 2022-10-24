@@ -17,6 +17,10 @@ const Sidebar = (props) => {
     })
   }, []);
 
+  const capString = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   return (
     <div className='sidebar'>
       {pokemons.map((pokemon) => {
@@ -25,7 +29,7 @@ const Sidebar = (props) => {
         <SidebarItem 
           key={count} 
           id={count} 
-          name={pokemon.name} 
+          name={capString(pokemon.name)} 
           updateSelectedPoke={props.updateSelectedPoke} >
         </SidebarItem>
         )

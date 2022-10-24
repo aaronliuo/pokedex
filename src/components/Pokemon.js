@@ -24,19 +24,26 @@ const Pokemon = (props) => {
     })
   }, [props.id]);
 
+  const capString = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   return (
     <div className='pokemon-entry'>
       <div className='large-poke-image'>
         <img className='poke-image' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id}.png`} />
       </div>
-      <div className='poke-info'>
-        <h1 className='poke-name'>#{props.id}. {pokemon.name} </h1>
+      {
+        pokemon.name !== undefined &&
+        <div className='poke-info'>
+        <h1 className='poke-name'>#{props.id}. {capString(pokemon.name)} </h1>
         <div className='poke-stats'>
           {pokemon.types !== undefined && <Types types={pokemon.types} ></Types>}
           {pokemon.abilities !== undefined && <Abilities abilities={pokemon.abilities} ></Abilities>}
           {pokemon.stats !== undefined && <BaseStats stats={pokemon.stats} ></BaseStats>}
         </div>
       </div>
+      }
       <div className='poke-description'></div>
     </div>
   )
