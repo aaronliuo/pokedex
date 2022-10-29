@@ -24,7 +24,6 @@ const Type = (props) => {
   ]);
 
   const color = types.get(props.type);
-  console.log(color);
 
   return (
     <div style={{background: `${color}`}}>

@@ -55,13 +55,23 @@ h3 {
 .sidebar {
   background-color: white;
   margin: 20px 0px 20px 20px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
 }
 
+.pokemon-list {
+  overflow: auto;
+  width: 95%;
+}
+
+
 .sidebar-item {
-  border: 2px solid grey;
+  border-top: 4px solid grey;
+  /* border-bottom: 4px solid grey; */
   height: 60px;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -154,4 +164,26 @@ h3 {
 
 .stat-text {
   margin: 0 0 0 2%;
+}
+
+.searchbar {
+  margin: 4px;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #bdbbbe;
+  border-radius: 8px;
+  border: 3px solid #ffffff;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
