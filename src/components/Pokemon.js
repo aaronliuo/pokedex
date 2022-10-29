@@ -5,6 +5,8 @@ import axios from 'axios';
 import Abilities from './pokemonComp/Abilities';
 import Types from './pokemonComp/Types';
 import BaseStats from './pokemonComp/BaseStats';
+import FlavorText from './pokemonComp/FlavorText';
+import Evolution from './pokemonComp/Evolution';
 
 const Pokemon = (props) => {
 
@@ -41,10 +43,13 @@ const Pokemon = (props) => {
           {pokemon.types !== undefined && <Types types={pokemon.types} ></Types>}
           {pokemon.abilities !== undefined && <Abilities abilities={pokemon.abilities} ></Abilities>}
           {pokemon.stats !== undefined && <BaseStats stats={pokemon.stats} ></BaseStats>}
+          {pokemonSpecies.evolves_from_species !== undefined && <Evolution evolution={pokemonSpecies.evolves_from_species} ></Evolution> }
         </div>
       </div>
       }
-      <div className='poke-description'></div>
+      <div className='poke-description'>
+        {pokemonSpecies.flavor_text_entries !== undefined && <FlavorText text={pokemonSpecies.flavor_text_entries} ></FlavorText>}
+      </div>
     </div>
   )
 }
