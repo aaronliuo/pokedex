@@ -43,7 +43,9 @@ const Pokemon = (props) => {
           {pokemon.types !== undefined && <Types types={pokemon.types} ></Types>}
           {pokemon.abilities !== undefined && <Abilities abilities={pokemon.abilities} ></Abilities>}
           {pokemon.stats !== undefined && <BaseStats stats={pokemon.stats} ></BaseStats>}
-          {pokemonSpecies.evolves_from_species !== undefined && <Evolution evolution={pokemonSpecies.evolves_from_species} ></Evolution> }
+          {pokemonSpecies.evolves_from_species !== undefined &&
+            <Evolution evolution={pokemonSpecies.evolves_from_species} updateSelectedPoke={props.updateSelectedPoke} ></Evolution> 
+          }
         </div>
       </div>
       }

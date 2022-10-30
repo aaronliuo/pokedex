@@ -45,6 +45,7 @@ p {
 }
 
 .pokedex {
+  position: relative;
   background-color: rgb(238, 121, 121);
   height: var(--poke-height);
   width: var(--poke-width);
@@ -54,6 +55,20 @@ p {
   grid-template-rows: 1fr;
   grid-template-columns: .4fr 1fr;
 }
+
+/* .pokedex::before {
+  background: radial-gradient(
+    500px circle at 100px 100px,
+    rgba(167, 32, 32, 0.8),
+    transparent 40%
+  );
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  z-index: 2;
+} */
 
 .sidebar {
   background-color: white;
@@ -94,15 +109,14 @@ p {
 }
 
 .pokemon-entry {
-  background-color: white;
   margin: 20px 20px 20px 0px;
   display: grid;
   grid-template-columns: 0.6fr 1fr;
   grid-template-rows: 0.6fr 1fr;
+  grid-gap: 2px;
 }
 
 .pokemon-entry > * {
-  border: 1px solid red;
   background-color: rgb(255, 255, 255);
 }
 
@@ -171,6 +185,14 @@ p {
 
 .searchbar {
   margin: 4px;
+}
+
+.evolution-container {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
 }
 
 *::-webkit-scrollbar {

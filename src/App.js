@@ -11,11 +11,13 @@ function App() {
     setSelectedPoke(pokemonID);
   }
 
+
+
   return (
     <div className="pokedex-container">
       <div className="pokedex">
         <Sidebar updateSelectedPoke={updateSelectedPoke} ></Sidebar>
-        <Pokemon id={selectedPoke} ></Pokemon>
+        <Pokemon id={selectedPoke} updateSelectedPoke={updateSelectedPoke}></Pokemon>
       </div>
     </div>
   );

@@ -14,7 +14,10 @@ const FlavorText = (props) => {
   }
 
   return (
-    <p>{filterText(props.text)}</p>
+    <div>
+      <h3>Description</h3>
+      <p>{filterText(props.text)}</p>
+    </div>
   )
 }
 

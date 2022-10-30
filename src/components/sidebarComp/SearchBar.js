@@ -7,11 +7,8 @@ const SearchBar = (props) => {
     const filteredData = props.data.filter((pokemon) => {
       return (pokemon.name.includes(searchKey) || pokemon.id.toString().includes(searchKey));
     })
-    console.log(filteredData);
     props.changePokemons(filteredData);
   }
-
-  console.log(props.data);
 
   return (
     <div className='searchbar'>
