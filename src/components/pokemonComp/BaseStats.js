@@ -3,7 +3,7 @@ import BaseStat from './BaseStat';
 
 const BaseStats = (props) => {
   return (
-    <div>
+    <div className='baseStats-container' >
       <h3>Base Stats</h3>
       {props.stats.map((stat) => {
         return (

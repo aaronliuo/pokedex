@@ -44,14 +44,41 @@ p {
   justify-content: center;
 }
 
-.pokedex {
+.felicia {
   position: relative;
-  background-color: rgb(238, 121, 121);
   height: var(--poke-height);
   width: var(--poke-width);
+  background-color: rgb(238, 121, 121);
   border-radius: 25px;
+  transform-style: preserve-3d;
+}
+
+.nav-bar {
+  transform: translateZ(-10px);
+  position: absolute;
+  top: -6%;
+  left: 2.5%;
+  border: 1px solid red;
+  height: 8%;
+  width: 80%;
+  display: flex;
+  gap: 1%;
+}
+
+.tab {
+  background-color: rgb(131, 198, 225);
+  width: 20%;
+  height: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pokedex {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
   display: grid;
-  gap: 20px;
   grid-template-rows: 1fr;
   grid-template-columns: .4fr 1fr;
 }
@@ -72,7 +99,7 @@ p {
 
 .sidebar {
   background-color: white;
-  margin: 20px 0px 20px 20px;
+  margin: 20px 20px 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -136,22 +163,23 @@ p {
   grid-row: 2 / 3;
 }
 
+.poke-stats > * {
+  margin: 0 0 0 5%;
+}
+
 .type-container {
-  border: 2px solid black;
-  border-radius: 25px;
-  height: 60px;
-  margin: 0 5% 5% 5%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin: -3% 0% 5% 5%;
+  /* align-items: center;
+  justify-content: center; */
   gap: 5px;
 }
 
 .type-list {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   gap: 10px;
 }
 
@@ -161,7 +189,9 @@ p {
 }
 
 .abilities-container {
-  /* border: 1px solid red; */
+  border-top: 4px solid grey;
+  border-bottom: 4px solid grey;
+  margin: 0 5% 0 5%;
   text-align: center;
   height: 80px;
 }

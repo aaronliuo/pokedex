@@ -1,25 +1,47 @@
 import React from "react";
-import { useState } from "react";
-import Sidebar from "./components/Sidebar";
-import Pokemon from "./components/Pokemon";
+import { useState, useEffect } from "react";
+import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Tab from "./components/Tab";
+import PokemonList from "./pages/PokemonList";
+import Compare from "./pages/Compare";
 
 function App() {
 
   const [selectedPoke, setSelectedPoke] = useState(1);
+  const [pokemons, setPokemons] = useState([]); 
 
-  const updateSelectedPoke = (pokemonID) => {
-    setSelectedPoke(pokemonID);
+  const assignIds = (data) => {
+    data.forEach((item, i) => {
+      item.id = i+1;
+    })
   }
-
-
+  
+  useEffect(() => {
+    axios('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0').then(response => {
+      assignIds(response.data.results);
+      setPokemons(response.data.results);
+    }).catch(error => {
+      console.log(error.message);
+    })
+  }, []);
 
   return (
-    <div className="pokedex-container">
-      <div className="pokedex">
-        <Sidebar updateSelectedPoke={updateSelectedPoke} ></Sidebar>
-        <Pokemon id={selectedPoke} updateSelectedPoke={updateSelectedPoke}></Pokemon>
+    <Router>
+      <div className="pokedex-container">
+        <div className="felicia">
+          <div className="nav-bar">
+            <Tab name="Pokemon" ></Tab>
+            <Tab name="Compare" ></Tab>
+          </div>
+          <Routes>
+            <Route exact path="/" element={<PokemonList selectedPoke={selectedPoke} setSelectedPoke={setSelectedPoke} pokemons={pokemons} />} />
+            <Route path="/Pokemon" element={<PokemonList selectedPoke={selectedPoke} setSelectedPoke={setSelectedPoke} pokemons={pokemons} />} />
+            <Route path="/Compare" element={<Compare pokemons={pokemons} />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
