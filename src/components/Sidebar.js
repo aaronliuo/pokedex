@@ -3,9 +3,8 @@ import { useState, useEffect } from 'react';
 import SidebarItem from './SidebarItem';
 import SearchBar from './sidebarComp/SearchBar';
 
-const Sidebar = ({ setSelectedPoke, pokemons }) => {
+const Sidebar = ({ selectedPoke, setSelectedPoke, pokemons }) => {
 
-  let count = 0;
   const [filteredPokemons, setFilteredPokemons] = useState([]);
   
   useEffect(() => {
@@ -21,11 +20,11 @@ const Sidebar = ({ setSelectedPoke, pokemons }) => {
       <SearchBar changePokemons={setFilteredPokemons} data={pokemons} ></SearchBar>
       <div className='pokemon-list'>
         {filteredPokemons.map((pokemon) => {
-          count += 1;
           return (
           <SidebarItem 
             key={pokemon.id} 
-            id={pokemon.id} 
+            id={pokemon.id}
+            selectedPoke={pokemon.id === selectedPoke}
             name={capString(pokemon.name)} 
             updateSelectedPoke={setSelectedPoke} >
           </SidebarItem>

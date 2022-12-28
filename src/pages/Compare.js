@@ -11,9 +11,9 @@ const Compare = ({ pokemons }) => {
 
   return (
     <div className='compare-container'>
-      <Sidebar setSelectedPoke={setSelectedPoke1} pokemons={pokemons} />
+      <Sidebar selectedPoke={selectedPoke1} setSelectedPoke={setSelectedPoke1} pokemons={pokemons} />
       <Main  selectedPoke1={selectedPoke1} selectedPoke2={selectedPoke2} />
-      <Sidebar setSelectedPoke={setSelectedPoke2} pokemons={pokemons} />
+      <Sidebar selectedPoke={selectedPoke2} setSelectedPoke={setSelectedPoke2} pokemons={pokemons} />
     </div>
   )
 }

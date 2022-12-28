@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Info from './Info';
+import Stat from './Stat';
 
 const DuelPokemon = ({ id1, id2 }) => {
 
@@ -29,6 +30,22 @@ const DuelPokemon = ({ id1, id2 }) => {
       <div className='info-container' >
         <Info id={id1} pokemon={pokemon1} />
         <Info id={id2} pokemon={pokemon2} />
+      </div>
+      <div>
+        {
+          pokemon1.stats !== undefined &&
+          pokemon2.stats !== undefined &&
+          pokemon1.stats.map((stat, index) => {
+            return (
+              <Stat 
+                key={stat.stat.name} 
+                name={stat.stat.name} 
+                value1={stat.base_stat} 
+                value2={pokemon2.stats[index].base_stat} 
+              />
+            )
+          })
+        }
       </div>
     </div>
   )

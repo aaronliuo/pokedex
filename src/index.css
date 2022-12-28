@@ -58,7 +58,6 @@ p {
   position: absolute;
   top: -6%;
   left: 2.5%;
-  border: 1px solid red;
   height: 8%;
   width: 80%;
   display: flex;
@@ -67,10 +66,26 @@ p {
 
 .tab {
   background-color: rgb(131, 198, 225);
+  border: 2px solid black;
+  border-radius: 10px;
   width: 20%;
   height: 100%;
   text-decoration: none;
+  color: black;
+  position: relative;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.tab:hover {
+  transform: translateY(-5px);
+}
+
+.tab > * {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  text-align: center;
 }
 
 .pokedex {
@@ -107,21 +122,55 @@ p {
 }
 
 .pokemon-list {
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   width: 95%;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
+.background-padding {
+  height: 60px;
+  width: 100%;
+  background-color: white;
+  transition: all 0.5s;
+}
+
+.background-padding:hover {
+  background-color: rgb(207, 240, 251);
+}
 
 .sidebar-item {
-  border-top: 4px solid grey;
-  /* border-bottom: 4px solid grey; */
-  height: 60px;
+  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   gap: 5px;
   justify-content: left;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.sidebar-item:hover {
+  transform: translateX(6px);
+}
+
+.selected-pokemon {
+  background-color: rgb(154, 229, 253);
+}
+
+.selected-pokemon > .sidebar-item > .poke-image-container {
+  animation-name: pokemon-jumping;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pokemon-jumping {
+  0% {transform: translateY(0px);}
+  50% {transform: translateY(-8px);}
+  100% {transform: translateY(0px);}
 }
 
 .poke-image-container {

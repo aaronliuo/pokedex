@@ -5,7 +5,7 @@ import Pokemon from "../components/Pokemon";
 const PokemonList = ({ selectedPoke, setSelectedPoke, pokemons }) => {
   return (
     <div className="pokedex">
-      <Sidebar setSelectedPoke={setSelectedPoke} pokemons={pokemons} ></Sidebar>
+      <Sidebar selectedPoke={selectedPoke} setSelectedPoke={setSelectedPoke} pokemons={pokemons} ></Sidebar>
       <Pokemon id={selectedPoke} updateSelectedPoke={setSelectedPoke}></Pokemon>
     </div>
   )
