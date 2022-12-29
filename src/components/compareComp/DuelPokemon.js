@@ -10,19 +10,21 @@ const DuelPokemon = ({ id1, id2 }) => {
   const [pokemon2, setPokemon2] = useState([]);
 
   useEffect(() => {
-    axios(`https://pokeapi.co/api/v2/pokemon/${id1}`).then(response => {
-      setPokemon1(response.data);
-    }).catch(error => {
-      console.log(error.message);
-    })
+    axios.post('http://localhost:3001/getPokemon', {pokemon: id1})
+      .then((response) => {
+        setPokemon1(response.data);
+      }).catch(error => {
+        console.log(error.message);
+      })
   }, [id1]);
 
   useEffect(() => {
-    axios(`https://pokeapi.co/api/v2/pokemon/${id2}`).then(response => {
-      setPokemon2(response.data);
-    }).catch(error => {
-      console.log(error.message);
-    })
+    axios.post('http://localhost:3001/getPokemon', {pokemon: id2})
+      .then((response) => {
+        setPokemon2(response.data);
+      }).catch(error => {
+        console.log(error.message);
+      })
   }, [id2]);
 
   return (

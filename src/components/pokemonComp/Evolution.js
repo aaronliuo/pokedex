@@ -13,11 +13,17 @@ const Evolution = (props) => {
 
   useEffect(() => {
     if(props.evolution !== null) {
-      axios(`https://pokeapi.co/api/v2/pokemon/${props.evolution.name}`).then(response => {
+      axios.post('http://localhost:3001/getPokemon', {pokemon: props.evolution.name})
+      .then((response) => {
         setPokemon(response.data);
       }).catch(error => {
         console.log(error.message);
       })
+      // axios(`https://pokeapi.co/api/v2/pokemon/${props.evolution.name}`).then(response => {
+      //   setPokemon(response.data);
+      // }).catch(error => {
+      //   console.log(error.message);
+      // })
     } else {
       setPokemon([]);
     }

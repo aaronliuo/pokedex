@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Tab from "./components/Tab";
 import PokemonList from "./pages/PokemonList";
@@ -16,14 +16,15 @@ function App() {
       item.id = i+1;
     })
   }
-  
+
   useEffect(() => {
-    axios('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0').then(response => {
-      assignIds(response.data.results);
-      setPokemons(response.data.results);
-    }).catch(error => {
-      console.log(error.message);
-    })
+    axios.post('http://localhost:3001/getPokemonList', {limit: '151'})
+      .then((response) => {
+        assignIds(response.data.results);
+        setPokemons(response.data.results);
+      }).catch(error => {
+        console.log(error.message);
+      })
   }, []);
 
   return (

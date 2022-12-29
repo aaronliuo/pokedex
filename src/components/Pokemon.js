@@ -10,20 +10,22 @@ import Evolution from './pokemonComp/Evolution';
 
 const Pokemon = (props) => {
 
-  const [pokemonSpecies, setPokemonSpecies] = useState([]); 
-  const [pokemon, setPokemon] = useState([]);
+  const [pokemonSpecies, setPokemonSpecies] = useState({}); 
+  const [pokemon, setPokemon] = useState({});
 
   useEffect(() => {
-    axios(`https://pokeapi.co/api/v2/pokemon-species/${props.id}`).then(response => {
-      setPokemonSpecies(response.data);
-    }).catch(error => {
-      console.log(error.message);
-    })
-    axios(`https://pokeapi.co/api/v2/pokemon/${props.id}`).then(response => {
-      setPokemon(response.data);
-    }).catch(error => {
-      console.log(error.message);
-    })
+    axios.post('http://localhost:3001/getPokemon', {pokemon: props.id})
+      .then((response) => {
+        setPokemon(response.data);
+      }).catch(error => {
+        console.log(error.message);
+      })
+    axios.post('http://localhost:3001/getPokemonSpecies', {pokemon: props.id})
+      .then((response) => {
+        setPokemonSpecies(response.data);
+      }).catch(error => {
+        console.log(error.message);
+      })
   }, [props.id]);
 
   const capString = (str) => {
