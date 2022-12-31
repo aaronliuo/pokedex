@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Tab from "./components/Tab";
 import PokemonList from "./pages/PokemonList";
 import Compare from "./pages/Compare";
+import Load from "./pages/Load";
 
 function App() {
 
@@ -36,7 +37,7 @@ function App() {
             <Tab name="Compare" ></Tab>
           </div>
           <Routes>
-            <Route exact path="/" element={<PokemonList selectedPoke={selectedPoke} setSelectedPoke={setSelectedPoke} pokemons={pokemons} />} />
+            <Route exact path="/" element={<Load />} />
             <Route path="/Pokemon" element={<PokemonList selectedPoke={selectedPoke} setSelectedPoke={setSelectedPoke} pokemons={pokemons} />} />
             <Route path="/Compare" element={<Compare pokemons={pokemons} />} />
           </Routes>

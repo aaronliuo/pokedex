@@ -19,6 +19,7 @@ code {
 :root {
   --poke-height: 700px;
   --poke-width: 1000px;
+  --poke-border-radius: 25px;
 }
 
 #root {
@@ -42,6 +43,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, rgba(54,53,75,1) 0%, rgba(68,68,132,1) 98%);
 }
 
 .felicia {
@@ -49,7 +51,7 @@ p {
   height: var(--poke-height);
   width: var(--poke-width);
   background-color: rgb(238, 121, 121);
-  border-radius: 25px;
+  border-radius: var(--poke-border-radius);
   transform-style: preserve-3d;
 }
 
