@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios, { Axios } from 'axios';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useHref } from 'react-router-dom';
 import Tab from "./components/Tab";
 import PokemonList from "./pages/PokemonList";
 import Compare from "./pages/Compare";
@@ -28,8 +28,13 @@ function App() {
       })
   }, []);
 
+  // useEffect(() => {
+
+  // }, )
+
   return (
     <Router>
+
       <div className="pokedex-container">
         <div className="felicia">
           <div className="nav-bar">
@@ -40,7 +45,7 @@ function App() {
             <Route exact path="/" element={<Load />} >
             </Route>
             <Route path="/Pokemon" element={<PokemonList selectedPoke={selectedPoke} setSelectedPoke={setSelectedPoke} pokemons={pokemons} />} />
-              <Route path="/Compare" element={<Compare pokemons={pokemons} />} />
+            <Route path="/Compare" element={<Compare pokemons={pokemons} />} />
           </Routes>
         </div>
       </div>

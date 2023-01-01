@@ -10,7 +10,7 @@
 
 .upper {
   position: absolute;
-  background-color: red;
+  background-color: rgb(227, 6, 6);
   border-top-left-radius: var(--poke-border-radius);
   border-top-right-radius: var(--poke-border-radius);
   width: 100%;

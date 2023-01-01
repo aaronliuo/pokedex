@@ -1,12 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHref } from 'react-router-dom';
 
 const Tab = ({ name }) => {
-  return (
-    <Link to={`/${name}`} className='tab' >
-      <div>{name}</div>
-    </Link>
-  )
+
+  const href = useHref();
+
+  if(href === '/') {
+    return <></>
+  } else {
+    return (
+      <Link to={`/${name}`} className='tab' >
+        <div>{name}</div>
+      </Link>
+    )
+  }
 }
 
 export default Tab
