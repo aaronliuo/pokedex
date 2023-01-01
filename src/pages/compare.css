@@ -4,6 +4,7 @@
   grid-template-columns: .25fr .5fr .25fr;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .main {

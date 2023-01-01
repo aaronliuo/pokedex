@@ -37,9 +37,10 @@ function App() {
             <Tab name="Compare" ></Tab>
           </div>
           <Routes>
-            <Route exact path="/" element={<Load />} />
+            <Route exact path="/" element={<Load />} >
+            </Route>
             <Route path="/Pokemon" element={<PokemonList selectedPoke={selectedPoke} setSelectedPoke={setSelectedPoke} pokemons={pokemons} />} />
-            <Route path="/Compare" element={<Compare pokemons={pokemons} />} />
+              <Route path="/Compare" element={<Compare pokemons={pokemons} />} />
           </Routes>
         </div>
       </div>
