@@ -14,27 +14,23 @@ const Load = () => {
   const goToPokemon = () => navigate('/Pokemon');
 
   const startAnimation = (e) => {
-    ball.current.style.transition = "transform 1s, background-color 0.5s";
-    ball.current.style.transform = "scale(0)";
+    ball.current.style.transition = "background-color 0.5s";
     ball.current.style.backgroundColor = "rgb(255, 255, 82)";
     background.current.style.backgroundColor = "rgb(238, 121, 121)";
-    upper.current.style.transform = "translateY(-100%)";
+    upper.current.style.transform = "translateY(-150%)";
     lower.current.style.transform = "translateY(100%)";
-    background.current.children[3].remove();
+    background.current.children[2].remove();
     setTimeout(goToPokemon, 1000);
   }
 
   return (
     <div ref={background} className='load-container'>
       <div ref={upper} className='upper'>
-
+        <div ref={ball} className='ball-container' onClick={startAnimation}>
+          <div className='ball-circle' ></div>
+        </div>
       </div>
-      <div ref={lower} className='lower'>
-
-      </div>
-      <div ref={ball} className='ball-container' onClick={startAnimation}>
-        <div className='ball-circle' ></div>
-      </div>
+      <div ref={lower} className='lower'></div>
       <div className='load-text'>
         Click the center to open the Pokedex!
       </div>

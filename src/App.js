@@ -34,7 +34,6 @@ function App() {
 
   return (
     <Router>
-
       <div className="pokedex-container">
         <div className="felicia">
           <div className="nav-bar">
