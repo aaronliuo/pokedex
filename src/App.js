@@ -5,12 +5,15 @@ import { BrowserRouter as Router, Routes, Route, useHref } from 'react-router-do
 import Tab from "./components/Tab";
 import PokemonList from "./pages/PokemonList";
 import Compare from "./pages/Compare";
-import Load from "./pages/Load";
+import Load from "./pages/Load"; 
+import AbilityList from "./pages/AbilityList";
 
 function App() {
 
   const [selectedPoke, setSelectedPoke] = useState(1);
   const [pokemons, setPokemons] = useState([]); 
+  const [selectedAbility, setSelectedAbility] = useState(1);
+  const [abilities, setAbilities] = useState([]);
 
   const assignIds = (data) => {
     data.forEach((item, i) => {
@@ -23,6 +26,13 @@ function App() {
       .then((response) => {
         assignIds(response.data.results);
         setPokemons(response.data.results);
+      }).catch(error => {
+        console.log(error.message);
+      })
+    axios.post('http://localhost:3001/getPokemonAbilities', {limit: '327'})
+      .then((response) => {
+        assignIds(response.data.results);
+        setAbilities(response.data.results);
       }).catch(error => {
         console.log(error.message);
       })
@@ -39,12 +49,14 @@ function App() {
           <div className="nav-bar">
             <Tab name="Pokemon" ></Tab>
             <Tab name="Compare" ></Tab>
+            <Tab name="Abilities" ></Tab>
           </div>
           <Routes>
             <Route exact path="/" element={<Load />} >
             </Route>
             <Route path="/Pokemon" element={<PokemonList selectedPoke={selectedPoke} setSelectedPoke={setSelectedPoke} pokemons={pokemons} />} />
             <Route path="/Compare" element={<Compare pokemons={pokemons} />} />
+            <Route path="/Abilities" element={<AbilityList selectedAbility={selectedAbility} setSelectedAbility={setSelectedAbility} abilities={abilities} />} />
           </Routes>
         </div>
       </div>

@@ -31,6 +31,20 @@ app.post('/getPokemonSpecies', jsonParser, (req, res) => {
   })
 });
 
+app.post('/getPokemonAbilities', jsonParser, (req, res) => {
+  P.getResource(`/api/v2/ability?limit=${req.body.limit}&offset=0`)
+    .then((response) => {
+      res.send(response);
+  })
+});
+
+app.post('/getPokemonAbility', jsonParser, (req, res) => {
+  P.getResource(`/api/v2/ability/${req.body.ability}/`)
+    .then((response) => {
+      res.send(response);
+  })
+});
+
 app.listen(port, () => {
   console.log(`Listening on Port ${port}`);
 });

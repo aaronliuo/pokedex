@@ -159,6 +159,10 @@ p {
   transition: all 0.3s;
 }
 
+.sidebar-item > * {
+  padding: 5px 0px 5px 0px;
+}
+
 .sidebar-item:hover {
   transform: translateX(6px);
 }
